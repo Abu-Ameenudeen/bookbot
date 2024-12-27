@@ -2,14 +2,20 @@ def main():
     path_to_file = r"books/frankenstein.txt"
     entire_text = read_text(path_to_file)
     total_words = count_words(entire_text)
-    all_characters = count_characters(entire_text)
+    all_characters_dict = count_characters(entire_text)
+    char_dict_list = dict_to_list(all_characters_dict)
+    char_dict_list.sort(reverse=True, key=sort_on)
     print(f"--- Begin report of {path_to_file} ---")
     print(f"{total_words} words found in the document")
     print()
-    for item in all_characters:
-        if item.isalpha():
-            print(f"The '{item}' character was found {all_characters[item]} times")
+    for item in char_dict_list:
+        if item["char"].isalpha():
+            print(f"The \'{item['char']}\' character was found {item['times']} times")
     print("--- End report ---")
+
+
+def sort_on(dict_item):
+    return dict_item["times"]
 
 
 def dict_to_list(char_dict):
