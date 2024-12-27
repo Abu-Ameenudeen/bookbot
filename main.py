@@ -2,7 +2,9 @@ def main():
     path_to_file = r"books/frankenstein.txt"
     entire_text = read_text(path_to_file)
     total_words = count_words(entire_text)
-    print(count_characters(entire_text))
+    print(f"--- Begin report of {path_to_file} ---")
+    print(f"{total_words} words found in the document")
+    print()
 
 
 def count_words(sting):
@@ -24,5 +26,6 @@ def read_text(book_path):
     with open(book_path) as infile:
         file_contents = infile.read()
         return file_contents
+
 
 main()
