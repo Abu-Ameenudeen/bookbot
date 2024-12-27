@@ -1,12 +1,23 @@
 def main():
     path_to_file = r"books/frankenstein.txt"
-    text = read_text(path_to_file)
-    print(count_words(text))
+    entire_text = read_text(path_to_file)
+    total_words = count_words(entire_text)
+    print(count_characters(entire_text))
 
 
 def count_words(sting):
     list_of_words = sting.split()
     return len(list_of_words)
+
+
+def count_characters(text):
+    characters = {}
+    for letter in text:
+        if letter in characters:
+            characters[letter] += 1
+        else:
+            characters[letter] = 1
+    return characters
 
 
 def read_text(book_path):
