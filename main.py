@@ -35,7 +35,8 @@ def count_words(sting):
 
 def count_characters(text):
     characters_dict = {}
-    for letter in text:
+    lower_text_contents = text.lower()
+    for letter in lower_text_contents:
         if letter in characters_dict:
             characters_dict[letter] += 1
         else:
